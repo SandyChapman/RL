@@ -194,6 +194,8 @@ class AutomodelCheckpointConfig(TypedDict, total=False):
     save_consolidated: Literal["false", "final", "every"]
     single_rank_consolidation: bool
     consolidation_timeout_minutes: int
+    # Keep the base model's transformers-v4 config.json on a consolidated export.
+    v4_compatible: bool
 
 
 class DTensorConfig(TypedDict):
