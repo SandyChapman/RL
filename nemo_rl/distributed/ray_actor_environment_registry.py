@@ -62,12 +62,10 @@ ACTOR_ENVIRONMENT_REGISTRY: dict[str, str] = {
     "nemo_rl.environments.nemo_gym.NemoGym": PY_EXECUTABLES.NEMO_GYM,
     # SandboxedGymActor drives the sandbox through nemo-sandboxed-gym and reuses Gym postprocessing
     # helpers; the NeMo-Gym environment carries both, plus the OpenSandbox SDK that
-    # nemo_gym[sandbox] pulls in. It does not import user environment code.
+    # nemo_gym[sandbox] pulls in. It does not import user environment code. The episode broker
+    # actor it starts has no entry of its own: nemo-sandboxed-gym cannot read this registry, so
+    # the broker inherits this environment from the actor that creates it.
     "nemo_rl.environments.sandbox.nemo_gym_actor.SandboxedGymActor": PY_EXECUTABLES.NEMO_GYM,
-    # The episode broker, in a process of its own: it serves every episode `exec`, which would
-    # otherwise share a GIL with the proxy actor's postprocessing. Same environment -- it reaches
-    # OpenSandbox through the same SDK.
-    "sandboxed_gym.ray.broker_actor.SandboxEpisodeBrokerActor": PY_EXECUTABLES.NEMO_GYM,
 }
 
 from nemo_rl.modelopt.registry import MODELOPT_ACTOR_REGISTRY
