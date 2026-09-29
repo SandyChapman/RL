@@ -50,7 +50,7 @@ jobs:
 
       - name: Fetch target branch reference
         run: |
-          git fetch --no-recurse-submodules origin ${{ inputs.base_ref }}
+          git fetch origin ${{ inputs.base_ref }}
 
       - name: Check submodule fast-forward status
         id: check
