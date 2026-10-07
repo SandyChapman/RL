@@ -266,7 +266,7 @@ nvrx = [
 # this environment and is the only OpenSandbox client for episode sandboxes.
 # nemo-sandboxed-gym owns the broker, the wire contract, and the job-host orchestration that
 # used to live under nemo_rl/environments/sandbox/; [ray] adds the broker actor wrapper.
-nemo_gym = ["nemo_gym[sandbox]", "nemo-sandboxed-gym[server,opensandbox,ray]==0.1.0a1"]
+nemo_gym = ["nemo_gym[sandbox]", "nemo-sandboxed-gym[server,opensandbox,ray]==0.1.0"]
 
 [dependency-groups]
 
